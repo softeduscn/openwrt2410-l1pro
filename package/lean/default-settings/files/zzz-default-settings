@@ -101,13 +101,11 @@ uci commit dhcp
 cat /etc/config/dhcp | grep wan6 > /dev/null
 if [ $? -ne 0 ];then
 cat >> /etc/config/dhcp <<EOF
+
 config dhcp 'lan6'
 	option interface 'lan6'
 	option ignore '1'
-	option master '1'
-	option ra 'relay'
-	option dhcpv6 'relay'
-	option ndp 'relay'
+
 EOF
 fi
 
